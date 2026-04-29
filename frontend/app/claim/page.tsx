@@ -53,7 +53,7 @@ function ClaimContent() {
     setStatus({ type: "info", message: "Scanning vault parameters..." });
     
     try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+      const provider = new ethers.BrowserProvider((window as any).ethereum);
       const contract = new ethers.Contract(vestingAddress, VESTING_ABI, provider);
       
       const [beneficiary, start, duration] = await Promise.all([
@@ -89,7 +89,7 @@ function ClaimContent() {
     setStatus({ type: "info", message: "Initiating release sequence..." });
 
     try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+      const provider = new ethers.BrowserProvider((window as any).ethereum);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(vestingAddress, VESTING_ABI, signer);
 

@@ -69,7 +69,7 @@ export default function DeployPage() {
         if (!configData.privateKey) throw new Error("Private Key not configured.");
         signer = new ethers.Wallet(configData.privateKey, provider);
       } else {
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.BrowserProvider((window as any).ethereum);
         signer = await provider.getSigner();
       }
 
