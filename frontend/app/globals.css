@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #F9FAFB;
+  --color-foreground: #000000;
+  
+  --color-industrial-emerald: #10B981;
+  --color-industrial-crimson: #EF4444;
+  --color-industrial-cyan: #06B6D4;
+  --color-industrial-black: #000000;
+  
+  --color-industrial-gray-50: #F9FAFB;
+  --color-industrial-gray-100: #F3F4F6;
+  --color-industrial-gray-200: #E5E7EB;
+  --color-industrial-gray-500: #6B7280;
+  --color-industrial-gray-900: #111827;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-attachment: fixed;
+}
+
+.industrial-card {
+  @apply bg-white/80 backdrop-blur-md border border-industrial-gray-200 rounded-none shadow-sm transition-all duration-300;
+}
+
+.industrial-card:hover {
+  @apply border-black shadow-xl -translate-y-1;
+}
+
+.industrial-input {
+  @apply w-full bg-white/50 backdrop-blur-sm border border-industrial-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-black transition-all duration-200;
+}
+
+.industrial-button-primary {
+  @apply bg-black text-white px-8 py-3 font-bold uppercase tracking-widest hover:bg-industrial-gray-900 transition-all active:scale-95 shadow-md hover:shadow-lg;
+}
+
+.industrial-button-secondary {
+  @apply bg-transparent border border-industrial-gray-200 text-black px-8 py-3 font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-300;
+}
+
+.heading-xl {
+  @apply text-6xl font-black tracking-tighter uppercase italic leading-[0.85];
+}
+
+.heading-lg {
+  @apply text-4xl font-black tracking-tighter uppercase leading-tight;
+}
+
+.heading-md {
+  @apply text-2xl font-black uppercase tracking-tight;
+}
+
+/* Glassmorphism for Navigation */
+nav {
+  @apply backdrop-blur-xl bg-white/70 sticky top-0 z-50;
+}
+
+@keyframes progress {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(0.7); }
+  100% { transform: scaleX(1); }
+}
+
+.animate-progress {
+  animation: progress 2s ease-in-out infinite;
+  display: none; /* Hidden by default, show on nav if needed or just keep as a subtle hint */
+}
+
+/* Page Transitions */
+.page-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-industrial-gray-200 hover:bg-black transition-colors;
+}
+
+.bg-grid-light {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+}
+
+
