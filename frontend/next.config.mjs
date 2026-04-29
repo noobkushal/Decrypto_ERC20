@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ['127.0.0.1', 'localhost'],
-  // Turbopack is enabled via command line, no extra config needed here for standard use
+  output: 'export',
+  basePath: '/Decrypto_ERC20', // Matches your repo name
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
